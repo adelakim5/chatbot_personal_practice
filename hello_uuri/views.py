@@ -19,7 +19,7 @@ def hello(request):
     block_id = rData.getBlockId()
     print(block_id)
     
-    if(ANSWER.__contains__(utterance) and ANSWER.__contains__('시작')):
+    if(ANSWER.__contains__(utterance)):
         # 답에 따른 다른 값 설정 
         answer = 0
         if utterance == ANSWER[0]:

@@ -76,8 +76,8 @@ class transformData:
                 "label": "대박 싫어"
             }
             ]
-            }
-            }
+        }
+    }
             
         return JsonResponse(data)
     def getJsonDumps(self):
