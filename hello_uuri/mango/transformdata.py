@@ -5,9 +5,8 @@ from .requestData import requestData
 
 class transformData:
     
-    def __init__(self, blockId, userId):
+    def __init__(self, blockId):
         self.blockId = blockId
-        self.userId = userId
         self.block_index = BLOCK_ID.index(blockId)
         if (len(BLOCK_ID) > self.block_index + 1):
             self.nextBlockId = BLOCK_ID[self.block_index + 1]
@@ -17,13 +16,6 @@ class transformData:
     
     def getJsonData(self):
         if self.block_index == 5:
-            questions = Question.objects.all().filter(userId=self.userId)
-            total = 0
-            for question in questions:
-                total = total+question.answer
-            userTotal = User(userId=self.userId, total=total)
-            userTotal.save()
-            
             data = {
                 "version": "2.0",
                 "template": {
