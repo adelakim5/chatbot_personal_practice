@@ -79,7 +79,7 @@ class transformData:
             }
             }
             
-            return JsonResponse(data)
+        return JsonResponse(data)
     def getJsonDumps(self):
         data = {
             "version": "2.0",
@@ -93,3 +93,4 @@ class transformData:
                 ]
             }
         }
+        return JsonResponse(data)
