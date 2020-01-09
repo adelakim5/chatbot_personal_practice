@@ -4,7 +4,7 @@ from django.db import models
 
 class User(models.Model):
     userId = models.CharField(max_length=100)
-    total = models.IntegerField()
+    total = models.IntegerField(null=True, blank=True)
     
 class Question(models.Model):
     question = models.CharField(max_length=100)
