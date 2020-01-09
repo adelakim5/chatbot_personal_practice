@@ -49,4 +49,5 @@ def hello(request):
         data = transformData(block_id, userId).getJsonData()
     else:
         data = transformData(block_id, userId).getJsonDumps()
+    return data 
 
