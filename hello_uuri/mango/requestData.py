@@ -1,5 +1,4 @@
 import json
-from.shared import *
 
 class requestData:
     def __init__(self, userRequest):

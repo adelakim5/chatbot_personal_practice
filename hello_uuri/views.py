@@ -11,9 +11,13 @@ from .models import *
 def hello(request):
     rData = requestData(request)
     userId = rData.getUserId()
+    print(userId)
     utterance = rData.getUtterance()
+    print(utterance)
     block_name = rData.getBlockName()
+    print(block_name)
     block_id = rData.getBlockId()
+    print(block_id)
     
     if(ANSWER.__contains__(utterance)):
         # 답에 따른 다른 값 설정 

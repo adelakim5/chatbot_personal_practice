@@ -52,28 +52,28 @@ class transformData:
                 ],
                 "quickReplies": [
             {
-                "messageText": ANSWER[0],
+                "messageText": "완전 좋아",
                 "action": "block",
                 "blockId": self.nextBlockId,
-                "label": ANSWER[0]
+                "label": "완전 좋아"
             },
             {
-                "messageText": ANSWER[1],
+                "messageText": "괜찮아",
                 "action": "block",
                 "blockId": self.nextBlockId,
-                "label": ANSWER[1]
+                "label": "괜찮아"
             },
             {
-                "messageText": ANSWER[2],
+                "messageText": "별로야",
                 "action": "block",
                 "blockId": self.nextBlockId,
-                "label": ANSWER[2]
+                "label": "별로야"
             },
             {
-                "messageText": ANSWER[3],
+                "messageText": "대박 싫어",
                 "action": "block",
                 "blockId": self.nextBlockId,
-                "label": ANSWER[3]
+                "label": "대박 싫어"
             }
             ]
             }
