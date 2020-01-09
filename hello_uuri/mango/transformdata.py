@@ -15,61 +15,45 @@ class transformData:
         self.question = QUESTION[self.block_index]
     
     def getJsonData(self):
-        if self.block_index == 5:
-            data = {
-                "version": "2.0",
-                "template": {
-                "outputs": [
-                    {
-                        "simpleText": {
-                            "text": "당신의 점수는 {} 입니다.".format(str(total))
-                        },
-                        
-                    }
+        data = {
+            "version": "2.0",
+            "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": self.question
+                    },
+                    
+                }
+            ],
+            "quickReplies": [
+        {
+            "messageText": "완전 좋아",
+            "action": "block",
+            "blockId": self.nextBlockId,
+            "label": "완전 좋아"
+        },
+        {
+            "messageText": "괜찮아",
+            "action": "block",
+            "blockId": self.nextBlockId,
+            "label": "괜찮아"
+        },
+        {
+            "messageText": "별로야",
+            "action": "block",
+            "blockId": self.nextBlockId,
+            "label": "별로야"
+        },
+        {
+            "messageText": "대박 싫어",
+            "action": "block",
+            "blockId": self.nextBlockId,
+            "label": "대박 싫어"
+                }
                 ]
             }
-            }
-                
-        else:
-            data = {
-                "version": "2.0",
-                "template": {
-                "outputs": [
-                    {
-                        "simpleText": {
-                            "text": self.question
-                        },
-                        
-                    }
-                ],
-                "quickReplies": [
-            {
-                "messageText": "완전 좋아",
-                "action": "block",
-                "blockId": self.nextBlockId,
-                "label": "완전 좋아"
-            },
-            {
-                "messageText": "괜찮아",
-                "action": "block",
-                "blockId": self.nextBlockId,
-                "label": "괜찮아"
-            },
-            {
-                "messageText": "별로야",
-                "action": "block",
-                "blockId": self.nextBlockId,
-                "label": "별로야"
-            },
-            {
-                "messageText": "대박 싫어",
-                "action": "block",
-                "blockId": self.nextBlockId,
-                "label": "대박 싫어"
-            }
-            ]
         }
-    }
             
         return JsonResponse(data)
     def getJsonDumps(self):

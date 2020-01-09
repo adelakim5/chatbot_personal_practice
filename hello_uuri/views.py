@@ -35,14 +35,14 @@ def hello(request):
         # 만약 user아니면 
         user = User.objects.get(userId=userId)
         if user is None:
-            user = User(userId=userId)
+            user = User(userId=userId, total=0)
             user.save()
         question = Question(question=block_name, answer=answer, userId=user)
         question.save()
         if block_id == '5e173c58ffa7480001c2a095':
             total = 0
             for que in question:
-                total = que.answer
+                total = total + que.answer
             userTotal = User(userId=user, total=total)
             userTotal.save()
             return JsonResponse(
