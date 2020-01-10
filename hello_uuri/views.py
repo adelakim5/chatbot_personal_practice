@@ -32,8 +32,8 @@ def hello(request):
         else:
             answer = 0
         # 동작하는 사용자가 기존에 사용한 적 있는 user인지 아닌지 검사 
-        # 만약 user아니면 
         userList = User.objects.all().filter(userId=userId)
+        # 만약 user 있으면 
         if userList:
             user = userList[0]
         else:
@@ -50,6 +50,14 @@ def hello(request):
         # 응답 보내주기
         data = transformData(block_id, user).getJsonData()
     else:
+        # 동작하는 사용자가 기존에 사용한 적 있는 user인지 아닌지 검사 
+        userList = User.objects.all().filter(userId=userId)
+        # 만약 user 있으면 
+        if userList:
+            user = userList[0]
+        else:
+            user= User(userId=userId, total=0)
+            user.save()
         data = transformData(block_id, user).getJsonDumps()
     return data 
 

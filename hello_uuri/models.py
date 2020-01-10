@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class User(models.Model):
-    userId = models.CharField(max_length=100,)
+    userId = models.CharField(max_length=100)
     total = models.IntegerField(null=True, blank=True)
     
 class Question(models.Model):
