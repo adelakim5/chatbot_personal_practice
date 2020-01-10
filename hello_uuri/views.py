@@ -34,11 +34,19 @@ def hello(request):
         # 동작하는 사용자가 기존에 사용한 적 있는 user인지 아닌지 검사 
         # 만약 user아니면 
         userList = User.objects.all().filter(userId=userId)
-        if userList is None:
-            user = User(userId=userId, total=0)
+        if userList:
+            user = userList[0]
+        else:
+            user= User(userId=userId, total=0)
             user.save()
-        question = Question(question=block_name, answer=answer, userId=user)
-        question.save()
+        question = Question.objects.all().filter(userId=userList)
+        if question:
+            # question이 존재하면
+            question[0].answer = answer
+            question[0].save
+        else:
+            question = Question(question=block_name, answer=answer, userId=userList)
+            question.save()
         # 응답 보내주기
         data = transformData(block_id, user).getJsonData()
     else:
