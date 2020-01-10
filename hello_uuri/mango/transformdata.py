@@ -22,9 +22,9 @@ class transformData:
             questions = Question.objects.all().filter(userId=user)
             for question in questions:
                 total = total + question.answer
-            userTotal = User.objects.all().filter(userId=user)
-            userTotal[0].total = total
-            userTotal[0].save()
+            userTotal = User.objects.get(userId=user)
+            userTotal.total = total
+            userTotal.save()
             data = {
                 "version": "2.0",
                 "template": {
