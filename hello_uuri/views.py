@@ -39,13 +39,13 @@ def hello(request):
         else:
             user= User(userId=userId, total=0)
             user.save()
-        question = Question.objects.all().filter(userId=userList)
+        question = Question.objects.all().filter(userId=user).filter(question=block_name)
         if question:
             # question이 존재하면
             question[0].answer = answer
             question[0].save
         else:
-            question = Question(question=block_name, answer=answer, userId=userList)
+            question = Question(question=block_name, answer=answer, userId=user)
             question.save()
         # 응답 보내주기
         data = transformData(block_id, user).getJsonData()
