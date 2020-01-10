@@ -48,8 +48,8 @@ def hello(request):
             question = Question(question=block_name, answer=answer, userId=user)
             question.save()
         # 응답 보내주기
-        data = transformData(block_id, user).getJsonData()
+        data = transformData(block_id, userId).getJsonData()
     else:
-        data = transformData(block_id, user).getJsonDumps()
+        data = transformData(block_id, userId).getJsonDumps()
     return data 
 
