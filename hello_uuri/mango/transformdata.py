@@ -18,10 +18,12 @@ class transformData:
     def getJsonData(self):
         if self.block_index == 5:
             total = 0
-            questions = Question.objects.all().filter(userId=self.user)
+            user = self.user
+            questions = Question.objects.all().filter(userId=user)
             for question in questions:
                 total = total + question.answer
-            userTotal = User(userId=self.user, total=total)
+            userTotal = User.objects.all().filter(userId=user)
+            userTotal.total = total
             userTotal.save()
             data = {
                 "version": "2.0",
